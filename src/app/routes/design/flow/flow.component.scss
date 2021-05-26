@@ -1,0 +1,22 @@
+.flow-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  .shape-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 200px;
+    height: 100%;
+  }
+  .graph-container {
+    flex: 1;
+    overflow: auto;
+    .graph {
+      width: 200%;
+      height: 200%;
+    }
+  }
+}
