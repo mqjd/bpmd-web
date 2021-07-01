@@ -13,10 +13,13 @@
   }
   .graph-container {
     flex: 1;
-    overflow: auto;
+    overflow: hidden;
     .graph {
       width: 200%;
       height: 200%;
+    }
+    &:hover {
+      overflow: auto;
     }
   }
 }

@@ -411,33 +411,20 @@ const createShape = function (sideNode, graph, style, width, height) {
 };
 
 const initShapes = function (sideNode, graph) {
-  createShape(sideNode, graph, 'rounded=0;whiteSpace=wrap;html=1', 100, 100);
-  createShape(sideNode, graph, 'rounded=1;whiteSpace=wrap;html=1', 100, 100);
-  createShape(sideNode, graph, 'shape=rhombus;whiteSpace=wrap;html=1;', 100, 100);
-  createShape(sideNode, graph, 'shape=cloud;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;', 150, 100);
-  createShape(sideNode, graph, 'shape=triangle;whiteSpace=wrap;html=1;', 50, 100);
+  createShape(sideNode, graph, 'rounded=0;whiteSpace=wrap;html=1', 80, 80);
+  createShape(sideNode, graph, 'rounded=1;whiteSpace=wrap;html=1', 80, 80);
+  createShape(sideNode, graph, 'shape=rhombus;whiteSpace=wrap;html=1;', 80, 80);
+  createShape(sideNode, graph, 'shape=cloud;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;', 120, 80);
+  createShape(sideNode, graph, 'shape=triangle;whiteSpace=wrap;html=1;', 40, 80);
 };
 
 export default function initPorts(graph) {
   graph.setConnectable(true);
   graph.setAllowDanglingEdges(false);
   graph.setMultigraph(false);
-  // Disables automatic handling of ports. This disables the reset of the
-  // respective style in mxGraph.cellConnected. Note that this feature may
-  // be useful if floating and fixed connections are combined.
   graph.setPortsEnabled(false);
-
-  // Enables rubberband selection
-  // new mxRubberband(graph);
-
-  // Gets the default parent for inserting new cells. This
-  // is normally the first child of the root (ie. layer 0).
-  // var parent = graph.getDefaultParent();
-
-  // Ports are equal for all shapes...
   var ports = new Array();
 
-  // NOTE: Constraint is used later for orthogonal edge routing (currently ignored)
   ports['w'] = { x: 0, y: 0.5, perimeter: true, constraint: 'west' };
   ports['e'] = { x: 1, y: 0.5, perimeter: true, constraint: 'east' };
   ports['n'] = { x: 0.5, y: 0, perimeter: true, constraint: 'north' };
@@ -447,10 +434,8 @@ export default function initPorts(graph) {
   ports['sw'] = { x: 0, y: 1, perimeter: true, constraint: 'south west' };
   ports['se'] = { x: 1, y: 1, perimeter: true, constraint: 'south east' };
 
-  // ... except for triangles
-  var ports2 = new Array();
+  var ports2 = [];
 
-  // NOTE: Constraint is used later for orthogonal edge routing (currently ignored)
   ports2['in1'] = { x: 0, y: 0, perimeter: true, constraint: 'west' };
   ports2['in2'] = { x: 0, y: 0.25, perimeter: true, constraint: 'west' };
   ports2['in3'] = { x: 0, y: 0.5, perimeter: true, constraint: 'west' };
